@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.clevertap.android.sdk.CleverTapAPI;
 import com.clevertap.android.sdk.PushPermissionResponseListener;
@@ -60,6 +63,16 @@ public class MainActivity extends AppCompatActivity implements PushPermissionRes
         if(cleverTapDefaultInstance.isPushPermissionGranted()){
             onPushPermissionResponse(true);
         }
+
+        Button goToWebViewButton = findViewById(R.id.button_go_to_webView);
+        goToWebViewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to XYZActivity
+                Intent intent = new Intent(MainActivity.this, webViewTest.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

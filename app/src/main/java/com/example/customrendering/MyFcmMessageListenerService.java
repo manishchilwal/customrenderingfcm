@@ -36,12 +36,15 @@ public class MyFcmMessageListenerService extends FirebaseMessagingService {
         try {
             if (message.getData().size() > 0) {
                 Bundle extras = new Bundle();
+                StringBuilder keyValuePairs = new StringBuilder("FCM Message: ");
                 for (Map.Entry<String, String> entry : message.getData().entrySet()) {
                     String key = entry.getKey();
                     String value = entry.getValue();
-                    Log.d("FCM Message", "Key: " + key + ", Value: " + value);
-                    extras.putString(key, value);
+                    keyValuePairs.append(key).append(": ").append(value).append(", ");
                 }
+                String logMessage = keyValuePairs.toString();
+                Log.d("FCM Message", logMessage);
+
                 for (Map.Entry<String, String> entry : message.getData().entrySet()) {
                     extras.putString(entry.getKey(), entry.getValue());
                 }
