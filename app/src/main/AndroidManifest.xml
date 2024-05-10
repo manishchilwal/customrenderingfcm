@@ -51,10 +51,10 @@
 
         <meta-data
             android:name="CLEVERTAP_ACCOUNT_ID"
-            android:value="R5K-486-ZW7Z" />
+            android:value="clevertap account id" />
         <meta-data
             android:name="CLEVERTAP_TOKEN"
-            android:value="6b4-352" />
+            android:value="clevertap account token" />
     </application>
 
 </manifest>
